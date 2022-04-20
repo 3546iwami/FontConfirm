@@ -3,6 +3,7 @@
 #include<QObject>
 #include<QString>
 
+
 class editText:public QObject
 {
     Q_OBJECT
@@ -13,7 +14,7 @@ public:
 signals:
     void inputSig();
 public slots:
-    void edittFont();
+    //QString getFontName();
 private:
     QString m_edittext;//編集文言
 };

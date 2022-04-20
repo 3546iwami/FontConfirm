@@ -21,7 +21,7 @@ Column{
      height:20
      onEditingFinished: {
          edittext.viewtext = text
-         //inputtext_class.font("/udsgPb_20180911.ttf");
+         //getFontName();
      }
     }
     Text {
@@ -31,7 +31,7 @@ Column{
         width:anchors.parent
         height:anchors.parent
         font.pointSize: 48
-        //font.family: "./udsgPb_20180911.ttf"
+        font.family:"TT\-UDShinGoP\-Medium"
     }
     Text {
         id: outputtext2
