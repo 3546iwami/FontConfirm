@@ -2,38 +2,30 @@
 #define EDITTEXT_H
 #include<QObject>
 #include<QString>
-#include <QComboBox>
+#include<QVariant>
 
-class editText:public QObject
+class EditText:public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString viewtext READ getEditText WRITE setEditText NOTIFY inputSig);
     Q_PROPERTY(QString viewfont READ getEditFont WRITE setEditFont NOTIFY inputSig);
-
 public:
-    editText();
+    explicit EditText(QObject *parent = 0);
+    //テキスト代入関数
+    Q_INVOKABLE void setEditText(QString input);
 signals:
     void inputSig();
+    void readTextSigCpp(QVariant);
 public slots:
-    //QString getFontName();
+    void readTextSlotCpp();
 private:
     QString m_edittext;//編集文言
     QString m_font;//フォント
-
-    QString getEditText(){
-        return m_edittext;
-    }
-    void setEditText(QString input){
-        m_edittext = input;
-        emit inputSig();
-    }
-    QString getEditFont(){
-        return m_font;
-    }
-    void setEditFont(QString input){
-        m_font = input;
-        emit inputSig();
-    }
+    //テキスト取得関数
+    QString getEditText();
+    //フォント取得関数
+    QString getEditFont();
+    //フォント代入関数
+    void setEditFont(QString input);
 };
-
 #endif // EDITTEXT_H
